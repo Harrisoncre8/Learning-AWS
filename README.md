@@ -1,68 +1,111 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Learning Amazon Web Services
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Duration: 2 Days
 
-### `npm start`
+What problem did you solve? How did you solve it?
+Using what I know from working with the SERN stack, I was able to learn how to upload an image to AWS S3 storage as well as retrieve images from that storage within this application. I also used the Amplify Framework to help me with this feature.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<!-- To see the fully functional site, please visit: DEPLOYED VERSION OF APP -->
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Wireframe
 
-### `npm test`
+<!-- ![Screenshot 1](wireframes/image1.png)
+![Screenshot 2](wireframes/image2.png)
+![Screenshot 3](wireframes/image3.png) -->
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+* https://nodejs.org/en/
+* https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/s3-example-photo-album.html
+* https://aws-amplify.github.io/docs/js/start?platform=purejs
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Installation
+This is a step by step list for how another developer could get this project up and running.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+1. Set up react app and add a webpack.config.js directory
+2. Set up an account on console.aws.amazon.com
+3. Install and configure the Amplify CLI
+    * $ npm install -g @aws-amplify/cli
+    * $ amplify configure
+    * Create AWS profile locally
+4. Add to package.JSON with
+    * {
+    "name": "amplify-js-app",
+    "version": "1.0.0",
+    "description": "Amplify JavaScript Example",
+    "dependencies": {
+        "@aws-amplify/api": "latest",
+        "@aws-amplify/pubsub": "latest"
+    },
+    "devDependencies": {
+        "webpack": "^4.17.1",
+        "webpack-cli": "^3.1.0",
+        "copy-webpack-plugin": "^4.5.2",
+        "webpack-dev-server": "^3.1.5"
+    },
+    "scripts": {
+        "start": "webpack && webpack-dev-server --mode development",
+        "build": "webpack"
+    }
+    }
+    * $ npm install
+4. Add the following code to webpack.config.js file:
+    * const CopyWebpackPlugin = require('copy-webpack-plugin');
+    const webpack = require('webpack');
+    const path = require('path');
+    module.exports = {
+    mode: 'development',
+    entry: './src/app.js',
+    output: {
+        filename: '[name].bundle.js',
+        path: path.resolve(__dirname, 'dist')
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/
+            }
+        ]
+    },
+    devServer: {
+        contentBase: './dist',
+        overlay: true,
+        hot: true
+    },
+    plugins: [
+        new CopyWebpackPlugin(['index.html']),
+        new webpack.HotModuleReplacementPlugin()
+    ]
+};
+5. Run the app and navigate to http://localhost:8080/
+6. To set up the backend, enter this in the terminal command line:
+    * npm amplify init #accept defaults
+    * How it Works: Rather than configuring each service through a constructor or constants file, Amplify supports configuration through a centralized file called aws-exports.js which defines all the regions and service endpoints to communicate. Whenever you run amplify push, this file is automatically created allowing you to focus on your application code. The Amplify CLI will place this file in the appropriate source directory configured with amplify init.
+    * To verify that we have CLI set up for our app we can run:
+        * $ amplify status
+7. To add a storage using amazon S3 type this into the command line in the terminal:
+    * $ amplify add storage
+    * Then choose "Content" for storage typea
+    * Choose your preferences for data storage and authentication/authorization 
+8. Run command below in command line to create the service in our account
+    * $ amplify push
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
+You can use this applicaiton to learn more about Amazon Web Services as well as be able to retrieve and store images. 
 
-### `npm run eject`
+## Built With
+* AWS
+* S3
+* Bucket
+* JavaScript
+* Express
+* Node
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Acknowledgement
+Thanks to Prime Digital Academy in Minneapolis who helped provide the foundation for me to be able to explore new technologies efficiently.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Support
+If you have suggestions or issues, please email me at harrisonnguyen517@gmail.com
