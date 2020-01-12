@@ -1,4 +1,4 @@
-# Learning Amazon Web Services
+# Learning Amazon Web Services and Amplify in React
 
 ## Description
 
