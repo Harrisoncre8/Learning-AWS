@@ -29,7 +29,7 @@ class App extends Component {
   saveFile = () => {
     Storage.put(this.state.filename, this.state.file)
       .then(() => {
-        console.log('Successfully saved file!');
+        console.log('Successfully saved file to AWS!');
         this.setState({
           fileURL: '', 
           file: '', 
