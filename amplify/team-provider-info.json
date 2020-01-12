@@ -1,0 +1,38 @@
+{
+    "test": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-learning-aws-test-25636-authRole",
+            "UnauthRoleArn": "arn:aws:iam::817061535208:role/amplify-learning-aws-test-25636-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::817061535208:role/amplify-learning-aws-test-25636-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-learning-aws-test-25636-deployment",
+            "UnauthRoleName": "amplify-learning-aws-test-25636-unauthRole",
+            "StackName": "amplify-learning-aws-test-25636",
+            "StackId": "arn:aws:cloudformation:us-east-1:817061535208:stack/amplify-learning-aws-test-25636/7158f010-3519-11ea-9723-0a99e59b1983",
+            "AmplifyAppId": "dhvluuva10uy5"
+        },
+        "categories": {
+            "auth": {
+                "learningawsbb1e4318": {}
+            }
+        }
+    },
+    "awstest": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-learning-aws-awstest-31456-authRole",
+            "UnauthRoleArn": "arn:aws:iam::817061535208:role/amplify-learning-aws-awstest-31456-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::817061535208:role/amplify-learning-aws-awstest-31456-authRole",
+            "Region": "us-east-1",
+            "DeploymentBucketName": "amplify-learning-aws-awstest-31456-deployment",
+            "UnauthRoleName": "amplify-learning-aws-awstest-31456-unauthRole",
+            "StackName": "amplify-learning-aws-awstest-31456",
+            "StackId": "arn:aws:cloudformation:us-east-1:817061535208:stack/amplify-learning-aws-awstest-31456/00f257a0-351c-11ea-bb5d-0ed2247e0ea9",
+            "AmplifyAppId": "dhvluuva10uy5"
+        },
+        "categories": {
+            "auth": {
+                "learningawsbb1e4318": {}
+            }
+        }
+    }
+}
